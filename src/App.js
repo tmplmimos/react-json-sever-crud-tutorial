@@ -20,7 +20,7 @@ class App extends Component {
         this.submitTask = this.submitTask.bind(this)
     }
 
-    fetchTasks() {
+    fetchTasks = () => {
         fetch('http://localhost:3001/tasks')
             .then(response => response.json())
             .then(json => {
@@ -35,11 +35,38 @@ class App extends Component {
     }
 
     submitTask() {
-        console.log(this.state.inputText);
+        fetch('http://localhost:3001/tasks', {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({body: this.state.inputText})
+        })
+            .then(this.fetchTasks)
     }
 
     componentWillMount() {
         this.fetchTasks()
+    }
+
+    putTask(taskId) {
+        fetch('http://localhost:3001/tasks' + taskId, {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({body: 'done it !!'})
+        })
+            .then(this.fetchTasks)
+    }
+
+    deleteTask(taskId) {
+        fetch('http://localhost:3001/tasks/' + taskId, {
+            method: 'DELETE'
+        })
+            .then(this.fetchTasks)
     }
 
     render() {
@@ -48,7 +75,19 @@ class App extends Component {
                 <div className="tasks">
                     {
                         this.state.tasks.map(task => {
-                            return <div className="task" key={task.id}>{task.body}</div>
+                            return (
+                                <div className="task" key={task.id}>
+                                    {task.body}
+                                    <button className="put" onClick={() => {
+                                        this.putTask(task.id)
+                                    }}>put
+                                    </button>
+                                    <button className="delete" onClick={() => {
+                                        this.deleteTask(task.id)
+                                    }}>delete
+                                    </button>
+                                </div>
+                            )
                         })
                     }
                 </div>
