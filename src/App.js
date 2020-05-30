@@ -51,7 +51,7 @@ class App extends Component {
     }
 
     putTask(taskId) {
-        fetch('http://localhost:3001/tasks' + taskId, {
+        fetch('http://localhost:3001/tasks/' + taskId, {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
@@ -80,7 +80,7 @@ class App extends Component {
                                     {task.body}
                                     <button className="put" onClick={() => {
                                         this.putTask(task.id)
-                                    }}>put
+                                    }}>done
                                     </button>
                                     <button className="delete" onClick={() => {
                                         this.deleteTask(task.id)
