@@ -1,3 +1,7 @@
+参考 => https://qiita.com/t12u/items/2be73956b788c745048f
+
+json-server を使って、非同期な CRUD 処理を実装する tutorial
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
