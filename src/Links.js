@@ -7,6 +7,7 @@ class Links extends React.Component {
       <div>
         <Link to="/">Home</Link>
         <Link to="/Tasks">Tasks</Link>
+        <Link to="/metronome">metronome</Link>
       </div>
     )
   }
