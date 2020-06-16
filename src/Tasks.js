@@ -5,16 +5,7 @@ class Tasks extends Component {
   constructor() {
     super()
     this.state = {
-      tasks: [
-        {
-          id: 1,
-          body: 'とりま表示'
-        },
-        {
-          id: 2,
-          body: 'いまだけ...'
-        }
-      ]
+      tasks: []
     }
     this.changeText = this.changeText.bind(this)
     this.submitTask = this.submitTask.bind(this)
