@@ -21,7 +21,7 @@ class Metronome extends Component {
   }
 
   sound() {
-    if(this.state.clickCount % this.state.beatPerMeasure == 0) {
+    if(this.state.clickCount % this.state.beatPerMeasure === 0) {
       document.getElementById('sound-file-strong').play()
     } else {
       document.getElementById('sound-file-week').play()
