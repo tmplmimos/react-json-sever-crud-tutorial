@@ -1,5 +1,4 @@
-## react-studies 
-## 🧐
+# react-studies 🧐
 
 ### Description
 react を使ってごにょごにょしてみる練習の痕跡...  
